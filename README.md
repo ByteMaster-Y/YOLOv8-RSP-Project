@@ -45,10 +45,7 @@ train과 val 폴더에 가위, 바위, 보 이미지를 rock, paper, scissors �
 
 3. **모델 학습**
 터미널에서 RSPdata 폴더로 이동 후 아래 명령어 실행:
-
- ```bash
- python train_only.py
-
+python train_only.py
 
 epochs=10으로 10회 반복 학습하여 최적의 best.pt 모델을 생성합니다.
 M1 Mac 환경에서는 device='mps' 옵션으로 학습 속도를 가속합니다.
