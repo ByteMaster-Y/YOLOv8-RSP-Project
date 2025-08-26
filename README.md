@@ -1,0 +1,91 @@
+# 가위바위보 이미지 분류기 (RSP Image Classifier)
+
+이 프로젝트는 **Ultralytics YOLOv8**을 활용하여 가위, 바위, 보 이미지를 정확하게 분류하는 딥러닝 모델을 개발하고, 실제 이미지로 성능을 테스트하는 과정을 담고 있습니다.<br>
+This project develops a deep learning model using Ultralytics YOLOv8 to accurately classify rock, paper, scissors images and tests its performance on real images.
+
+---
+## 기술스택
+
+![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=flat&logo=python&logoColor=white)
+![Ultralytics](https://img.shields.io/badge/Ultralytics-YOLOv8-FF0000?style=flat)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)
+![macOS](https://img.shields.io/badge/OS-macOS-000000?style=flat&logo=apple&logoColor=white)
+
+---
+
+## 프로젝트 개요
+
+본 프로젝트는 **직접 촬영한 데이터셋**을 구축하여 모델의 분류 성능을 극대화하는 것을 목표로 합니다.<br>
+This project develops a deep learning model using **Ultralytics YOLOv8** to accurately classify rock, paper, scissors images and tests its performance on real images.
+
+- **데이터셋 구축**: 직접 촬영한 가위, 바위, 보 이미지를 사용하여 학습 데이터셋을 구성했습니다. 이는 일반적인 공개 데이터셋의 한계를 극복하고 모델의 현실 적용성을 높이기 위함입니다.  
+- **모델**: YOLOv8-cls 모델을 사용하여 빠르고 효율적인 이미지 분류를 구현했습니다.  
+- **학습**: M1 Mac의 MPS(Metal Performance Shaders)를 활용하여 GPU 가속 환경에서 모델을 학습시켰습니다.  
+- **예측**: 학습된 모델을 활용해 무작위로 선택된 테스트 이미지에 대한 예측을 수행하고, 그 결과를 시각적으로 확인하는 기능을 구현했습니다.  
+
+---
+
+## 프로젝트 구조
+
+   
+   ```bash
+   .
+   ├── RSPdata/
+   │   ├── train/            # 학습용 이미지 (직접 촬영)
+   │   ├── val/              # 검증용 이미지 (직접 촬영)
+   │   ├── yolov8n-cls.pt    # 사전 학습된 YOLOv8 모델 가중치
+   │   └── runs/             # 학습 결과가 저장되는 폴더
+   │       └── classify/
+   │           └── train/    # 학습된 최종 모델 (best.pt)
+   ├── test_only.py         # 학습 및 예측을 통합한 메인 스크립트
+   └── train_predict_RSP.py  # 모델 학습 전용 스크립트
+   
+   ```
+---
+
+## 사용 방법
+
+1. **환경 설정**  
+   Python 3.8 이상, PyTorch, Ultralytics 라이브러리 설치
+   ```bash
+   pip install ultralytics
+   ```
+
+2. **데이터셋 준비**
+train과 val 폴더에 가위, 바위, 보 이미지를 rock, paper, scissors 폴더로 나누어 저장합니다.
+
+3. **모델 학습**
+터미널에서 RSPdata 폴더로 이동 후 아래 명령어 실행:
+   ```bash
+   python train_predict_RSP.py
+   ```
+
+   epochs=10으로 10회 반복 학습하여 최적의 best.pt 모델을 생성합니다.
+   M1 Mac 환경에서는 device='mps' 옵션으로 학습 속도를 가속합니다.
+
+4. **모델 예측**
+학습 완료 후, python test_only.py 실행:
+
+   ```bash
+   python test_only.py
+   ```
+
+   스크립트가 무작위 이미지를 선택하고 자동으로 열어주며, 예측 결과를 터미널에 출력합니다.
+
+---
+
+## 결과 예시
+
+예측 결과 예시는 아래와 같이 표시됩니다:
+
+- 모델은 테스트 이미지에서 **97% 이상의 정확도**를 기록했습니다.  
+- 직접 제작한 데이터셋을 활용하여, 현실적인 환경에서도 높은 성능을 유지할 수 있음을 확인했습니다.
+
+---
+
+## 시사점
+
+- AI 모델의 성능에 있어 **데이터셋의 품질과 현실성**이 매우 중요함을 보여줍니다.  
+- 단순 이미지 분류를 넘어, **개인 데이터로 커스텀 AI 모델을 구축**하는 실용적인 방법론을 제시합니다.
+
+
