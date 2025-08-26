@@ -3,6 +3,11 @@
 이 프로젝트는 **Ultralytics YOLOv8**을 활용하여 가위, 바위, 보 이미지를 정확하게 분류하는 딥러닝 모델을 개발하고, 실제 이미지로 성능을 테스트하는 과정을 담고 있습니다.<br>
 This project develops a deep learning model using Ultralytics YOLOv8 to accurately classify rock, paper, scissors images and tests its performance on real images.
 
+![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=flat&logo=python&logoColor=white)
+![Ultralytics](https://img.shields.io/badge/Ultralytics-YOLOv8-FF0000?style=flat)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)
+![macOS](https://img.shields.io/badge/OS-macOS-000000?style=flat&logo=apple&logoColor=white)
+
 ---
 
 ## 프로젝트 개요
