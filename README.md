@@ -1,6 +1,7 @@
 # 가위바위보 이미지 분류기 (RSP Image Classifier)
 
-이 프로젝트는 **Ultralytics YOLOv8**을 활용하여 가위, 바위, 보 이미지를 정확하게 분류하는 딥러닝 모델을 개발하고, 실제 이미지로 성능을 테스트하는 과정을 담고 있습니다.
+이 프로젝트는 **Ultralytics YOLOv8**을 활용하여 가위, 바위, 보 이미지를 정확하게 분류하는 딥러닝 모델을 개발하고, 실제 이미지로 성능을 테스트하는 과정을 담고 있습니다.<br>
+This project develops a deep learning model using Ultralytics YOLOv8 to accurately classify rock, paper, scissors images and tests its performance on real images.
 
 ---
 
@@ -28,8 +29,8 @@ This project develops a deep learning model using **Ultralytics YOLOv8** to accu
    │   └── runs/             # 학습 결과가 저장되는 폴더
    │       └── classify/
    │           └── train/    # 학습된 최종 모델 (best.pt)
-   ├── train_only.py         # 모델 학습 전용 스크립트
-   └── train_predict_RSP.py  # 학습 및 예측을 통합한 메인 스크립트
+   ├── test_only.py         # 학습 및 예측을 통합한 메인 스크립트
+   └── train_predict_RSP.py  # 모델 학습 전용 스크립트
    
    ```
 ---
