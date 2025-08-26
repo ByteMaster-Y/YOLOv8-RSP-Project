@@ -6,7 +6,7 @@
 
 ## 프로젝트 개요
 
-본 프로젝트는 **직접 촬영한 데이터셋**을 구축하여 모델의 분류 성능을 극대화하는 것을 목표로 합니다.
+본 프로젝트는 **직접 촬영한 데이터셋**을 구축하여 모델의 분류 성능을 극대화하는 것을 목표로 합니다.<br>
 This project develops a deep learning model using **Ultralytics YOLOv8** to accurately classify rock, paper, scissors images and tests its performance on real images.
 
 - **데이터셋 구축**: 직접 촬영한 가위, 바위, 보 이미지를 사용하여 학습 데이터셋을 구성했습니다. 이는 일반적인 공개 데이터셋의 한계를 극복하고 모델의 현실 적용성을 높이기 위함입니다.  
@@ -19,17 +19,38 @@ This project develops a deep learning model using **Ultralytics YOLOv8** to accu
 ## 프로젝트 구조
 
    ```bash
-   ├── RSPdata/
-   │ ├── train/ # 학습용 이미지 (직접 촬영)
-   │ ├── val/ # 검증용 이미지 (직접 촬영)
-   │ ├── yolov8n-cls.pt # 사전 학습된 YOLOv8 모델 가중치
-   │ └── runs/ # 학습 결과가 저장되는 폴더
-   │ └── classify/
-   │ └── train/ # 학습된 최종 모델 (best.pt)
-   ├── train_only.py # 모델 학습 전용 스크립트
-   └── train_predict_RSP.py # 학습 및 예측을 통합한 메인 스크립트
+  네, 알겠습니다! 대학원생 프로젝트에 어울리게, 전문적이면서도 명확한 깃허브 README 파일을 만들어 드리겠습니다. 직접 촬영한 데이터로 모델을 학습시켰다는 점을 강조해서 차별성을 더할게요.
 
-   ```
+아래 내용은 한국어와 영어 버전으로 나뉘어 있으며, 바로 복사해서 사용하실 수 있도록 마크다운 형식으로 작성했습니다.
+
+한국어 README
+가위바위보 이미지 분류기 (RSP Image Classifier)
+이 프로젝트는 Ultralytics YOLOv8을 활용하여 가위, 바위, 보 이미지를 정확하게 분류하는 딥러닝 모델을 개발하고, 실제 이미지로 성능을 테스트하는 과정을 담고 있습니다.
+
+프로젝트 개요
+본 프로젝트는 직접 촬영한 데이터셋을 구축하여 모델의 분류 성능을 극대화하는 것을 목표로 합니다.
+
+데이터셋 구축: 직접 촬영한 가위, 바위, 보 이미지를 사용하여 학습 데이터셋을 구성했습니다. 이는 일반적인 공개 데이터셋의 한계를 극복하고 모델의 현실 적용성을 높이기 위함입니다.
+
+모델: YOLOv8-cls 모델을 사용하여 빠르고 효율적인 이미지 분류를 구현했습니다.
+
+학습: M1 Mac의 MPS(Metal Performance Shaders)를 활용하여 GPU 가속 환경에서 모델을 학습시켰습니다.
+
+예측: 학습된 모델을 활용해 무작위로 선택된 테스트 이미지에 대한 예측을 수행하고, 그 결과를 시각적으로 확인하는 기능을 구현했습니다.
+
+프로젝트 구조
+```bash
+.
+├── RSPdata/
+│   ├── train/            # 학습용 이미지 (직접 촬영)
+│   ├── val/              # 검증용 이미지 (직접 촬영)
+│   ├── yolov8n-cls.pt    # 사전 학습된 YOLOv8 모델 가중치
+│   └── runs/             # 학습 결과가 저장되는 폴더
+│       └── classify/
+│           └── train/    # 학습된 최종 모델 (best.pt)
+├── train_only.py         # 모델 학습 전용 스크립트
+└── train_predict_RSP.py  # 학습 및 예측을 통합한 메인 스크립트
+```
 ---
 
 ## 사용 방법
