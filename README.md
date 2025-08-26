@@ -30,9 +30,6 @@
 
 ---
 
-
----
-
 ## 사용 방법
 
 1. **환경 설정**  
@@ -45,7 +42,8 @@ train과 val 폴더에 가위, 바위, 보 이미지를 rock, paper, scissors �
 
 3. **모델 학습**
 터미널에서 RSPdata 폴더로 이동 후 아래 명령어 실행:
-python train_only.py
+   ```bash
+   python train_only.py
 
 epochs=10으로 10회 반복 학습하여 최적의 best.pt 모델을 생성합니다.
 M1 Mac 환경에서는 device='mps' 옵션으로 학습 속도를 가속합니다.
@@ -53,7 +51,8 @@ M1 Mac 환경에서는 device='mps' 옵션으로 학습 속도를 가속합니�
 4. **모델 예측**
 학습 완료 후, train_predict_RSP.py 파일의 모델 경로를 best.pt 파일이 있는 위치로 수정하고 실행:
 
-python train_predict_RSP.py
+   ```bash
+   python train_predict_RSP.py
 
 스크립트가 무작위 이미지를 선택하고 자동으로 열어주며, 예측 결과를 터미널에 출력합니다.
 
