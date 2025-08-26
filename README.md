@@ -7,6 +7,7 @@
 ## 프로젝트 개요
 
 본 프로젝트는 **직접 촬영한 데이터셋**을 구축하여 모델의 분류 성능을 극대화하는 것을 목표로 합니다.
+This project develops a deep learning model using **Ultralytics YOLOv8** to accurately classify rock, paper, scissors images and tests its performance on real images.
 
 - **데이터셋 구축**: 직접 촬영한 가위, 바위, 보 이미지를 사용하여 학습 데이터셋을 구성했습니다. 이는 일반적인 공개 데이터셋의 한계를 극복하고 모델의 현실 적용성을 높이기 위함입니다.  
 - **모델**: YOLOv8-cls 모델을 사용하여 빠르고 효율적인 이미지 분류를 구현했습니다.  
@@ -17,17 +18,18 @@
 
 ## 프로젝트 구조
 
+   ```bash
+   ├── RSPdata/
+   │ ├── train/ # 학습용 이미지 (직접 촬영)
+   │ ├── val/ # 검증용 이미지 (직접 촬영)
+   │ ├── yolov8n-cls.pt # 사전 학습된 YOLOv8 모델 가중치
+   │ └── runs/ # 학습 결과가 저장되는 폴더
+   │ └── classify/
+   │ └── train/ # 학습된 최종 모델 (best.pt)
+   ├── train_only.py # 모델 학습 전용 스크립트
+   └── train_predict_RSP.py # 학습 및 예측을 통합한 메인 스크립트
 
-├── RSPdata/
-│ ├── train/ # 학습용 이미지 (직접 촬영)
-│ ├── val/ # 검증용 이미지 (직접 촬영)
-│ ├── yolov8n-cls.pt # 사전 학습된 YOLOv8 모델 가중치
-│ └── runs/ # 학습 결과가 저장되는 폴더
-│ └── classify/
-│ └── train/ # 학습된 최종 모델 (best.pt)
-├── train_only.py # 모델 학습 전용 스크립트
-└── train_predict_RSP.py # 학습 및 예측을 통합한 메인 스크립트
-
+   ```
 ---
 
 ## 사용 방법
@@ -51,7 +53,7 @@ train과 val 폴더에 가위, 바위, 보 이미지를 rock, paper, scissors �
    M1 Mac 환경에서는 device='mps' 옵션으로 학습 속도를 가속합니다.
 
 4. **모델 예측**
-학습 완료 후, tpython test_only.py 실행:
+학습 완료 후, python test_only.py 실행:
 
    ```bash
    python test_only.py
